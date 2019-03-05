@@ -29,6 +29,15 @@ Public Const GHND = &H42
 Public Const CF_TEXT = 1
 Public Const MAXSIZE = 4096
 
+Sub CopyText(Info As String)
+'PURPOSE: Copy a given text to the clipboard (using Windows API)
+'SOURCE: www.TheSpreadsheetGuru.com
+'NOTES: Must have above API declaration and ClipBoard_SetData function in your code
+
+   ClipBoard_SetData Info
+
+End Sub
+                                
 Function ClipBoard_SetData(MyString As String)
 'PURPOSE: API function to copy text to clipboard
 'SOURCE: www.msdn.microsoft.com/en-us/library/office/ff192913.aspx
@@ -69,24 +78,3 @@ OutOfHere2:
   End If
 
 End Function
-
-Sub CopyText(Info As String)
-'PURPOSE: Copy a given text to the clipboard (using Windows API)
-'SOURCE: www.TheSpreadsheetGuru.com
-'NOTES: Must have above API declaration and ClipBoard_SetData function in your code
-
-'Dim txt As String
-
-'Put some text inside a string variable
-  'txt = "This was copied to the clipboard using VBA!"
-
-'Place text into the Clipboard
-   ClipBoard_SetData Info
-
-'Notify User
-  'MsgBox "There is now text copied to your clipboard!", vbInformation
-
-End Sub
-Sub CopyCell()
-    Text2Clip (ActiveCell)
-End Sub
